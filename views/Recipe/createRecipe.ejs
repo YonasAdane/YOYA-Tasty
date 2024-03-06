@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YOYA Testy | Create Recipe</title>
+    <link rel="stylesheet" href="/createRecipestyle.css">
+    <style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+.container {
+    width: 45%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background: rgba(255,255,255,0.5);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.25);
+
+}
+.form {
+    padding: 20px;
+}
+.form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+input[type="text"] {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+button[onclick="addIngredient()"], button[onclick="addStep()"] {
+    background-color: #007bff;
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button[onclick="addIngredient()"]:hover, button[onclick="addStep()"]:hover {
+    background-color: #0067cc;
+}
+
+button[type="submit"] {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button[type="submit"]:hover {
+    background-color: #222;
+}
+#ingredient-list {
+    margin-bottom: 15px;
+}
+
+.ingerd, .amnt {
+    display: inline-block;
+    margin-right: 10px;
+    width: 45%;
+}
+#tag-area {
+    margin-bottom: 15px;
+}
+
+#tag-area input {
+    margin-right: 5px;
+    width: calc(33% - 10px);
+}
+button[type="submit"] {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button[type="submit"]:hover {
+    background-color: #222;
+}
+    </style>
+</head>
+<body class="body">
+    <%- include('../partials/header') %>
+    <main>
+        <section class="container">
+            <div class="form">
+                <h2>Create Recipe</h2>
+                <div class="userN1">
+                    <label for="title">Title:</label>
+                    <input type="text" name="title"><br>
+                </div>
+                <div class="userN2 " >
+                    <label for="name">Ingredients:</label>
+                    <button onclick="addIngredient()">add ingredient</button>
+                </div>
+                <div class="user" id="ingredient-list">
+                    <div class="userN3 " >
+                        <div class="ingerd">
+                            <label for="ingredname">name:</label>
+                            <input type="text" name="ingredname">
+                        </div>
+                        <div class="amnt">
+                            <label for="amount">amount:</label>
+                            <input type="text" name="amount">
+                        </div>
+                    </div>
+                </div>
+                <div class="userN4 " >
+                    <label for="name">Steps:</label>
+                    <button onclick="addStep()">add Step</button>
+                </div>
+                <div class="userStep " id="userStep" >
+                    <label for="Step">Step1:</label>
+                    <input type="text" name="Step" >
+                </div>
+                <div class="userN5 " >
+                    <label for="name">Tags:</label>
+                </div>
+                <div class="userN6 " id="tag-area" >
+                    <input type="text" name="tag">
+                    <input type="text" name="tag">
+                    <input type="text" name="tag">
+                </div>
+                
+                <div class="userN7">
+                    <label for="category">category:</label>
+                    <input type="text" name="category"><br>
+                </div>
+                <div class="userN8">
+                    <label for="foodPicture">Food Picture:</label>
+                    <input type="text" name="foodPicture"><br>
+                </div>
+                <div class="userN9">
+                    <button type="submit" onclick="submitForm()">submit</button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>
+        var Recipe={
+            title:'',
+            ingredients: [
+                {
+                name: '',
+                quantity:''
+            }],
+            steps: [ ''],
+            category: '',
+            tags: ['' ],
+            foodPicture:'',
+        };
+        function addIngredient() {
+  // Create the <div> element
+    var divElement = document.createElement('div');
+    var divEl = document.createElement('div');
+        divEl.classList.add('userN');
+
+    // Create the <label> element for the name
+    var nameLabel = document.createElement('label');
+    nameLabel.setAttribute('for', 'ingredname');
+    nameLabel.textContent = 'Ingredient name:';
+    divElement.appendChild(nameLabel);
+
+    // Create the <input> element for the name
+    var nameInput = document.createElement('input');
+    nameInput.setAttribute('type', 'text');
+    nameInput.setAttribute('name', 'ingredname');
+    divElement.appendChild(nameInput);
+
+    // Create a ldiv2 element
+    var divElement2 = document.createElement('div');
+
+    // Create the <label> element for the amount
+    var amountLabel = document.createElement('label');
+    amountLabel.setAttribute('for', 'amount');
+    amountLabel.textContent = 'amount:';
+    divElement2.appendChild(amountLabel);
+
+    // Create the <input> element for the amount
+    var amountInput = document.createElement('input');
+    amountInput.setAttribute('type', 'text');
+    amountInput.setAttribute('name', 'amount');
+    divElement2.appendChild(amountInput);
+
+    // Get the element with the ID "ingredient-list"
+    var ingredientList = document.getElementById('ingredient-list');
+
+    // Append the created <div> element to the "ingredient-list" element
+        divEl.appendChild(divElement);
+        divEl.appendChild(divElement2);
+    ingredientList.appendChild(divEl);
+}
+    var numberofStep=1;
+        function addStep(){
+            numberofStep+=1;
+            var userStep = document.getElementById('userStep');
+            var StepLabel = document.createElement('label');
+            StepLabel.setAttribute('for', 'Step');
+            StepLabel.textContent = `Step${numberofStep}:`;
+
+            var stepInput = document.createElement('input');
+            stepInput.setAttribute('type', 'textarea');
+            stepInput.setAttribute('name', 'Step');
+
+            userStep.appendChild(StepLabel);
+            userStep.appendChild(stepInput); 
+        }
+        //dssafdsfd
+    function sendIngredient() {
+        var ingredientNameInputs = document.getElementsByName('ingredname');
+        var amountInputs = document.getElementsByName('amount');
+
+        var ingredientNames = [];
+        var amounts = [];
+
+        // Retrieve the values from the ingredient name inputs
+        for (var i = 0; i < ingredientNameInputs.length; i++) {
+            ingredientNames.push(ingredientNameInputs[i].value);
+        }
+
+        // Retrieve the values from the amount inputs
+        for (var i = 0; i < amountInputs.length; i++) {
+            amounts.push(amountInputs[i].value);
+        }
+
+        // Create an array of ingredient objects
+        var ingredients = [];
+        for (var i = 0; i < ingredientNames.length; i++) {
+            var ingredient = {
+            name: ingredientNames[i],
+            quantity: amounts[i],
+            };
+            ingredients.push(ingredient);
+        }
+
+        // Update the Recipe object with the ingredients
+        Recipe.ingredients = ingredients;
+        }
+
+    function sendStep() {
+        var stepInputs = document.getElementsByName('Step');
+        var steps = [];
+        // Retrieve the values from the step inputs
+        for (var i = 0; i < stepInputs.length; i++) {
+            steps.push(stepInputs[i].value);
+        }
+        // Update the Recipe object with the steps
+        Recipe.steps = steps;
+        }
+
+    function submitForm() {
+        // Retrieve the values from the HTML elements
+        Recipe.title = document.getElementsByName('title')[0].value;
+        sendIngredient();
+        sendStep();
+        Recipe.category = document.getElementsByName('category')[0].value;
+        Recipe.foodPicture = document.getElementsByName('foodPicture')[0].value;
+        var tagInputs = document.getElementsByName('tag');
+        var tags = [];
+        // Retrieve the values from the tag inputs
+        for (var i = 0; i < tagInputs.length; i++) {
+            tags.push(tagInputs[i].value);
+        }
+        // Update the Recipe object with the tags
+        Recipe.tags = tags;
+        // Send the Recipe data to the server
+        fetch('/create-recipe', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(Recipe),
+            })
+            .then(response => response.json())
+            .then(createdRecipe => {
+                // Handle the response from the server
+                console.log('Created Recipe:', createdRecipe);
+                window.location.href = '/home';
+            })
+            .catch(error => {
+                window.location.href = '/home';
+                // Handle any errors that occurred during the request
+                console.error('Error:', error);
+            });
+                }
+    </script>
+</body>
+</html>

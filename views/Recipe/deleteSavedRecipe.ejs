@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YOYA Testy | Delete Saved Recipe</title>
+    <link rel="stylesheet" href="/Global.css">
+    <style>
+    
+        main {
+            padding: 20px;
+        }
+
+        .dashboard-container {
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 0 auto;
+            max-width: 887px;
+        }
+
+        .dashboard-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .action-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+
+        .action-button {
+            display: block; 
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            color: #333;
+            background-color: #fff;
+            transition: all 0.2s ease-in-out;
+            border:2px solid #333;
+        }
+
+        .action-button:hover {
+            background-color: #f2f2f2;
+        }
+
+        .recipes {
+            margin-bottom: 20px;
+        }
+
+        .recipes h3 {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .check{
+            position:absolute;
+            
+            left: 5px;
+            top:5px;
+        }
+        input.check:checked ~ label {
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+            }
+    </style>
+</head>
+<body>
+    <%- include('../partials/header') %>
+
+    <main>
+        <div class="dashboard-container">
+            <h2>Delete saved Recipe</h2>
+            <section class="action-buttons">
+                <a href="/users/saved" class="action-button" >See Saved Recipes</a>
+                <a href="/users/delete-saved" class="action-button" >Delete Recipe</a>
+            </section>
+            <section class="recipes">
+                <form action="/users/delete-saved" method="post">
+                    <ul class="recipe-cards">
+                        <% recipes.forEach(recip=>{ %>
+                            <label class="recipe-card" for="<%= recip.id%>" >
+                                <input class="check" type="checkbox" id="<%= recip.id%>" name="id" value="<%= recip.id%>">
+                                <img src="<%= recip.foodPicture%>" alt="food picture">
+                                <h3><strong><%= recip.title%></strong></h3>
+                                <p><b>Category:</b> <%= recip.category%></p>
+                            </label>
+                        <% });%>
+                    </ul>
+                    <input class="action-button" type="submit" value="Delete Selected">
+                </form>
+            </section>
+        </div>
+    </main>
+</body>
+</html>

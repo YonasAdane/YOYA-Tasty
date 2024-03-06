@@ -1,0 +1,191 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* position: absolute; */
+    width:100%;
+    /* top:0; */
+}
+
+header h1 {
+    font-size: 2em;
+    margin: 0;
+}
+.userStep input{
+    display: inline-block;
+    width:100%;
+}
+
+nav ul{
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+
+nav li {
+    margin-right: 20px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: #ddd;
+}
+
+main {
+    padding: 20px;
+}
+
+.recipe-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 0 auto;
+    width: 80%;
+}
+
+.recipe-card {
+    width: 300px;
+    margin: 10px;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.recipe-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.recipe-card h3 {
+    padding: 10px;
+    text-align: center;
+    font-size: 1.2em;
+    margin: 0;
+}
+
+.recipe-card p {
+    padding: 10px;
+    font-size: 0.8em;
+    text-align: center;
+}
+body{
+    /* background-image:url("/Sierra simple mod.jpg"); */
+    background-size:cover;
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+    font-family: "Source Sans Pro",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    margin:0;
+    /* display:flex; */
+    height:100vh;
+    flex-direction: column;
+    justify-content:center;
+    align-items:center;
+
+
+}
+.body{
+    background-image:url('dinner-table-with-bunch-green-oil-bottle-garlic-spoon-mixed-color-table.jpg');
+
+}
+
+.container{
+    background-color: rgba(240, 248, 255, 0.678);
+    width:50%;
+    padding:23px 13px;
+    border-radius: 7px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.form{
+    
+
+}
+.userN{
+    width:100%;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:5px;
+}
+.userN input{
+    display:block;
+    box-sizing: border-box;
+}
+.Login-Header{
+    text-align: center;
+    margin: 0px;
+    margin-bottom: 9px;
+
+    /* border:2px solid dodgerblue; */
+}
+.Myalert{
+    width:100%;
+    border:1px solid red;
+    border-radius: 6px;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    margin:2px;
+    background-color: rgba(255, 38, 0, 0.267);
+
+}
+.Myalert button{
+    background-color: red;
+    padding: 1px 4px ;
+    border-radius: 7px;
+    color:white;
+}
+.lime{
+    border-color: limegreen;
+    background-color: rgba(102, 255, 102, 0.267);
+}
+/* .submit{
+    background-color: dodgerblue;
+    border-radius: 6px;
+    padding:0 4px;
+    font-size: 0.9em;
+} */
+.submit{
+    background-color:rgb(20, 129, 238,0);
+    color:white;
+    /* color:lightgray; */
+    font-size:15px;
+    border-radius:7px;
+    border-color:rgb(20, 129, 238);
+    background-color:rgb(20, 129, 238);
+
+    height:25px;
+    width:70px;
+    font-weight:500;
+    /* margin-top:10px;
+    margin-left:3%; */
+}
+.signUp{
+    border-color:rgb(20, 129, 238);
+    background-color:transparent;
+    color:black;
+
+
+}
+/* .userN:nth-child(2){
+    margin-right:0;
+    flex-grow:1;
+} */

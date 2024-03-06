@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YOYA Testy | Saved Recipe</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    font-size: 2em;
+    margin: 0;
+    color: #fff;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav li {
+    margin-right: 20px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: #ddd;
+}
+
+main {
+    padding: 20px;
+}
+
+.dashboard-container {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 887px;
+}
+
+.dashboard-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.action-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.action-button {
+    display: block; /* Make buttons behave like links */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none; /* Remove underline for button-like appearance */
+    color: #333;
+    background-color: #fff;
+    transition: all 0.2s ease-in-out;
+    border:2px solid #333;
+}
+
+.action-button:hover {
+    background-color: #f2f2f2;
+}
+
+.recipes {
+    margin-bottom: 20px;
+}
+
+.recipes h3 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.recipe-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.recipe-card {
+    width: 250px;
+    margin: 10px;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
+    text-align: center;
+}
+
+.recipe-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.recipe-card h3 {
+    padding: 10px;
+    font-size: 1.2em;
+    margin: 0;
+}
+
+/* Hide additional recipe sections initially */
+
+.saved-recipes, .create-recipe-form, .delete-recipe-form {
+    display: none;
+}
+
+    </style>
+</head>
+<body>
+    <%- include('../partials/header') %>
+
+    <main>
+        <div class="dashboard-container">
+            <h2>Saved Recipes</h2>
+            <section class="action-buttons">
+                <a href="#" class="action-button" >See Saved Recipes</a>
+                <a href="/users/create-recipe" class="action-button" ">Create Recipe</a>
+                <a href="/users/delete-saved" class="action-button" >Delete Saved Recipe</a>
+            </section>
+            <section class="recipes">
+                <ul class="recipe-cards">
+                    <% recipes.forEach(recip=>{ %>
+                        <div class="recipe-card">
+                            <a href="/recipe/<%= recip.id%>">
+                                <img src="<%= recip.foodPicture%>" alt="food picture">
+                            </a>
+                            <h3><strong><%= recip.title%></strong></h3>
+                            <p><b>Category:</b> <%= recip.category%></p>
+                        </div>
+                    <% });%>
+                </ul>
+            </section>
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YOYA Testy | Home</title>
+    <link rel="stylesheet" href="/sty.css">
+</head>
+<body>
+    <%- include('../partials/header') %>
+    <main>
+        <section class="recipe-cards">
+            <% recipes.forEach(recip=>{ %>
+                <div class="recipe-card">
+                    <a href="/recipe/<%= recip.id%>">
+                        <img src="<%= recip.foodPicture%>" alt="food picture">
+                    </a>
+                    <h3><strong><%= recip.title%></strong></h3>
+                    <p><b>Category:</b> <%= recip.category%></p>
+                </div>
+            <% });%>
+            </section>
+    </main>
+   
+</body>
+</html>

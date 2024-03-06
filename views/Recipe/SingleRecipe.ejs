@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YOYA Testy | <%= recipe.title %></title>
+    <link rel="stylesheet" href="Global.css">
+    <style>
+        
+
+        main {
+            padding: 20px;
+        }
+
+        .recipe-container {
+            display: flex;
+            flex-wrap: wrap;
+            width:80vw;
+            margin: 0 auto;
+            box-sizing: border-box;
+            padding: 20px;
+        }
+
+        .recipe-image {
+            width: 50%;
+            padding: 10px;
+        }
+
+        .recipe-image img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .recipe-info {
+            width: 50%;
+            padding: 10px;
+        }
+
+        .recipe-info h2 {
+            margin-bottom: 10px;
+        }
+
+        .recipe-info p {
+            margin-bottom: 5px;
+        }
+
+        .recipe-meta {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 10px;
+        }
+
+        .tag,
+        .category {
+            padding: 5px 10px;
+            margin: 5px;
+            border-radius: 5px;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+
+        .category {
+            background-color: #e0e0e0;
+        }
+
+        .bookmark-btn {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+
+        .bookmark-btn:hover {
+            background-color: #222;
+        }
+
+        .ingredients,
+        .instructions {
+            margin-bottom: 20px;
+        }
+
+        .ingredients h3,
+        .instructions h3 {
+            margin-bottom: 10px;
+        }
+
+        .ingredient-list,
+        .instruction-list {
+            /* list-style: none; */
+            padding: 0;
+            margin: 0;
+        }
+
+        .ingredient-list li,
+        .instruction-list li {
+            margin-bottom: 5px;
+        }
+
+    </style>
+</head>
+<body>
+    <%- include('../partials/header') %>
+
+    <main>
+        <div class="recipe-container">
+            <div class="recipe-image">
+                <img src="<%= recipe.foodPicture %>" alt="[recipe title] image">
+            </div>
+            <div class="recipe-info">
+                <h2><%= recipe.title %></h2>
+                <p>By: [Creator Name]</p>
+                <div class="recipe-meta">
+                <% recipe.tags.forEach((tag)=>{ %>
+                    <span class="tag"><%= tag %></span>
+                <%}) %>
+                    <span class="category"><%= recipe.category %></span>
+                </div>
+                <form id="Bookmark-form"  method="post">
+
+                    <button class="bookmark-btn">Bookmark</button>
+                </form>
+                <div class="ingredients">
+                    <h3>Ingredients</h3>
+                    <ul class="ingredient-list">
+                    <% recipe.ingredients.forEach((ingredient)=>{ %>
+                        <li><%= ingredient.quantity %>  <%= ingredient.name %></li>
+                    <%}) %>                       
+                    </ul>
+                </div>
+                <div class="instructions">
+                    <h3>Instructions</h3>
+                    <ol class="instruction-list">
+                        <% recipe.steps.forEach((step)=>{ %>
+                            <li><%= step %>  </li>
+                        <%}) %>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </main>
+<script>
+    document.getElementById('Bookmark-form').setAttribute('action', window.location.pathname);
+</script>
+</body>
+</html>

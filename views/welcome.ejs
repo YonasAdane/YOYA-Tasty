@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delicious Delights: Explore Culinary Delights</title>
+    <link rel="stylesheet" href="/Global.css">
+    <style>
+        
+/* main {
+} */
+
+#main {
+  padding: 20px;
+    text-align: center;
+    padding: 50px 0;
+    background-image: url("https://img.freepik.com/premium-photo/seafood-dish-with-lobster-beautiful-food-platting_887552-31637.jpg?w=900");
+    background-size: cover;
+    background-position: center;
+    /* background-color: dodgerblue; */
+    color: #fff;
+    height:72vh;
+
+}
+
+.hero-banner h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.hero-banner button {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 32px;
+}
+
+.featured-categories {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.featured-categories h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.category-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+}
+
+.category-list li {
+    list-style: none;
+    margin: 5px;
+}
+
+.featured-recipes {
+    text-align: center;
+}
+
+.featured-recipes h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.recipe-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 0 auto;
+}
+
+.recipe-card {
+    width: 250px;
+    margin: 10px;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
+    text-align: center;
+}
+
+.recipe-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.recipe-card h3 {
+    padding: 10px;
+    font-size: 1.2em;
+    margin: 0;
+}
+
+.recipe-card p {
+    padding: 5px;
+    font-size: 0.8em;
+}
+.featured-categories a{
+    color: aqua;
+}
+
+  </style>
+</head>
+<body>
+    <%- include('./partials/header')%>
+    <main id="main">
+        <section class="hero-banner">
+            <h2>Unlock a World of Flavor</h2>
+            <p>Discover delicious and inspiring recipes that are easy to follow and perfect for every occasion.</p>
+            <a href="/users/login"><button >Explore Recipes</button></a>
+        </section>
+        <section class="featured-categories">
+            <h2>Explore by Category</h2>
+            <ul class="category-list">
+                <li><a href="#">Main Courses</a></li>
+                <li><a href="#">Appetizers & Snacks</a></li>
+                <li><a href="#">Desserts & Baking</a></li>
+                <li><a href="#">Salads & Soups</a></li>
+                <li><a href="#">Vegan & Vegetarian</a></li>
+                <li><a href="#">International Cuisine</a></li>
+            </ul>
+        </section>
+        <section class="featured-recipes">
+
+        </section>
+    </main>
+</body>
+</html>
